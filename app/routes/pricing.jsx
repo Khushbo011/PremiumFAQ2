@@ -1,6 +1,9 @@
 import { Page, Layout, Card, BlockStack, Text, Button, Grid, List } from "@shopify/polaris";
 import { useNavigate } from "react-router";
 
+import { AppProvider as PolarisAppProvider } from "@shopify/polaris";
+import translations from "@shopify/polaris/locales/en.json";
+
 export default function Pricing() {
   const navigate = useNavigate();
 
@@ -8,15 +11,13 @@ export default function Pricing() {
     if (plan === "FREE") {
       navigate("/app/gallery"); // Or wherever you want to go on free
     } else {
-      // Need to redirect to a secure route that handles Shopify Billing API
-      // Since this pricing page is public, we cannot use Shopify App Bridge directly here
-      // We'll bounce them to our secure app route to handle the upgrade
       window.location.href = `/app/upgrade?plan=${plan}`;
     }
   };
 
   return (
-    <Page title="Plans & Pricing">
+    <PolarisAppProvider i18n={translations}>
+      <Page title="Plans & Pricing">
       <Layout>
         <Layout.Section>
           <BlockStack gap="400" alignment="center">
@@ -102,5 +103,6 @@ export default function Pricing() {
         </Layout.Section>
       </Layout>
     </Page>
+    </PolarisAppProvider>
   );
 }

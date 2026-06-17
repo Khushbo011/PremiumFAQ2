@@ -12,6 +12,9 @@ const TEMPLATES = {
   "8": { name: "Enterprise FAQ", description: "Dense layout for a large amount of FAQs.", tone: "new", tier: "PRO" },
 };
 
+import { AppProvider as PolarisAppProvider } from "@shopify/polaris";
+import translations from "@shopify/polaris/locales/en.json";
+
 export default function TemplatePreviewPublic() {
   const params = useParams();
   const navigate = useNavigate();
@@ -27,6 +30,7 @@ export default function TemplatePreviewPublic() {
   };
 
   return (
+    <PolarisAppProvider i18n={translations}>
     <div style={{ background: "#f4f6f8", minHeight: "100vh", padding: "40px 20px" }}>
       <Page title={`${template.name} Preview`} backAction={{ content: 'Back', onAction: () => navigate(-1) }}>
         <Layout>
@@ -86,5 +90,6 @@ export default function TemplatePreviewPublic() {
         </Layout>
       </Page>
     </div>
+    </PolarisAppProvider>
   );
 }
