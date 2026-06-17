@@ -1,26 +1,5 @@
 {
-  "version": 2,
   "buildCommand": "npm run build",
   "installCommand": "npm install",
-  "framework": null,
-  "outputDirectory": "build/client",
-  "functions": {
-    "build/server/index.js": {
-      "runtime": "@vercel/node"
-    }
-  },
-  "routes": [
-    {
-      "src": "/assets/(.*)",
-      "dest": "/assets/$1"
-    },
-    {
-      "src": "/(.*\\.(js|css|ico|png|jpg|svg|woff2|woff|ttf))",
-      "dest": "/$1"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "/build/server/index.js"
-    }
-  ]
+  "framework": null
 }
