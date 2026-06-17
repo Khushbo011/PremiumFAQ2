@@ -1,0 +1,20 @@
+{% if app.metafields.premium_faq.global_enabled == true %}
+  <div class="premium-faq-widget global-faq" data-faq-type="global" data-shop="{{ shop.permanent_domain }}">
+    <!-- Global FAQ Content -->
+  </div>
+  <script src="{{ 'faq_widget.js' | asset_url }}" defer></script>
+  <link rel="stylesheet" href="{{ 'faq_widget.css' | asset_url }}">
+{% endif %}
+
+{% schema %}
+{
+  "name": "Global Store FAQs",
+  "target": "head",
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "Global FAQs will only render if enabled in the app Dashboard. This ensures zero leakage to unintended pages."
+    }
+  ]
+}
+{% endschema %}

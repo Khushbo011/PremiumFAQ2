@@ -1,0 +1,65 @@
+/* Premium FAQ Widget Styles */
+.premium-faq-widget {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  font-family: inherit;
+}
+
+.premium-faq-item {
+  border-bottom: 1px solid #eaeaea;
+  padding: 16px 0;
+}
+
+.premium-faq-question {
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 600;
+  font-size: 1.1em;
+  color: var(--faq-text-color, #333);
+}
+
+.premium-faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-out;
+  color: var(--faq-text-color, #555);
+  opacity: 0.8;
+  margin-top: 0;
+}
+
+.premium-faq-answer.open {
+  max-height: 500px;
+  margin-top: 12px;
+}
+
+.premium-faq-icon {
+  transition: transform 0.3s ease;
+}
+
+.premium-faq-question.active .premium-faq-icon {
+  transform: rotate(180deg);
+}
+
+/* Glassmorphism Template Overrides */
+.premium-faq-widget[data-template="7"] {
+  background: rgba(255, 255, 255, 0.25);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  padding: 24px;
+}
+
+/* Cards Template Overrides */
+.premium-faq-widget[data-template="4"] .premium-faq-item {
+  border: none;
+  background: #fff;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  border-radius: 8px;
+  margin-bottom: 16px;
+  padding: 16px;
+}

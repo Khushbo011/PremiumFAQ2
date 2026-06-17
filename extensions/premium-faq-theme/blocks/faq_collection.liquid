@@ -1,0 +1,19 @@
+<div class="premium-faq-widget" data-faq-type="collection" data-collection-id="{{ collection.id }}" data-shop="{{ shop.permanent_domain }}">
+  <!-- FAQ Content Will Be Injected Here by React/JS -->
+</div>
+
+{% schema %}
+{
+  "name": "Collection FAQs",
+  "target": "section",
+  "templates": ["collection"],
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Frequently Asked Questions"
+    }
+  ]
+}
+{% endschema %}

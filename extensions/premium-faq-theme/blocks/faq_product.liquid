@@ -1,0 +1,19 @@
+<div class="premium-faq-widget" data-faq-type="product" data-product-id="{{ product.id }}" data-shop="{{ shop.permanent_domain }}">
+  <!-- FAQ Content Will Be Injected Here by React/JS -->
+</div>
+
+{% schema %}
+{
+  "name": "Product FAQs",
+  "target": "section",
+  "templates": ["product"],
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Frequently Asked Questions"
+    }
+  ]
+}
+{% endschema %}

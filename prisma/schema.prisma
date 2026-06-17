@@ -1,0 +1,87 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+// Note that some adapters may set a maximum length for the String type by default, please ensure your strings are long
+// enough when changing adapters.
+// See https://www.prisma.io/docs/orm/reference/prisma-schema-reference#string for more information
+datasource db {
+  provider = "sqlite"
+  url      = "file:dev.sqlite"
+}
+
+model Session {
+  id            String    @id
+  shop          String
+  state         String
+  isOnline      Boolean   @default(false)
+  scope         String?
+  expires       DateTime?
+  accessToken   String
+  userId        BigInt?
+  firstName     String?
+  lastName      String?
+  email         String?
+  accountOwner  Boolean   @default(false)
+  locale        String?
+  collaborator  Boolean?  @default(false)
+  emailVerified Boolean?  @default(false)
+  refreshToken        String?
+  refreshTokenExpires DateTime?
+}
+
+model Shop {
+  id               String   @id @default(uuid())
+  shopDomain       String   @unique
+  plan             String   @default("FREE")
+  active           Boolean  @default(true)
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
+  faqs             Faq[]
+  categories       FaqCategory[]
+  settings         FaqSettings?
+}
+
+model FaqCategory {
+  id        String   @id @default(uuid())
+  shopId    String
+  shop      Shop     @relation(fields: [shopId], references: [id], onDelete: Cascade)
+  title     String
+  faqs      Faq[]
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Faq {
+  id          String   @id @default(uuid())
+  shopId      String
+  shop        Shop     @relation(fields: [shopId], references: [id], onDelete: Cascade)
+  categoryId  String?
+  category    FaqCategory? @relation(fields: [categoryId], references: [id], onDelete: SetNull)
+  question    String
+  answer      String
+  visibility  String   @default("GLOBAL")
+  assignedTo  String?  
+  order       Int      @default(0)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model FaqSettings {
+  id              String   @id @default(uuid())
+  shopId          String   @unique
+  shop            Shop     @relation(fields: [shopId], references: [id], onDelete: Cascade)
+  templateId      String   @default("1")
+  primaryColor    String   @default("#000000")
+  backgroundColor String   @default("#ffffff")
+  textColor       String   @default("#333333")
+  fontSize        Int      @default(16)
+  borderRadius    Int      @default(8)
+  spacing         Int      @default(16)
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+}
+
