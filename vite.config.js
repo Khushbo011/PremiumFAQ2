@@ -32,6 +32,9 @@ if (host === "localhost") {
     host: host,
     port: parseInt(process.env.FRONTEND_PORT) || 8002,
     clientPort: 443,
+  };
+}
+
 export default defineConfig({
   server: {
     allowedHosts: [host],
