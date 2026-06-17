@@ -50,6 +50,12 @@ module.exports = {
       },
       rules: {
         "react/no-unknown-property": ["error", { ignore: ["variant"] }],
+        "no-restricted-imports": [
+          "error",
+          {
+            "patterns": ["*.server"]
+          }
+        ]
       },
     },
 

@@ -1,4 +1,5 @@
 import { Page, Layout, Card, BlockStack, Text, Button, TextField, Select, Grid, RangeSlider, ColorPicker, hsbToHex, hexToRgb } from "@shopify/polaris";
+import { useAppBridge } from "@shopify/app-bridge-react";
 import { authenticate } from "../shopify.server";
 import { useLoaderData, useNavigate } from "react-router";
 import { useState } from "react";
@@ -46,6 +47,7 @@ export const loader = async ({ request, params }) => {
 export default function TemplatePreview() {
   const { templateId, settings, previewFaqs } = useLoaderData();
   const navigate = useNavigate();
+  const shopify = useAppBridge();
 
   // State for real-time customization
   const [primaryColor, setPrimaryColor] = useState({ hue: 200, brightness: 1, saturation: 1, alpha: 1 });

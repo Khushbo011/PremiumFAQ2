@@ -72,29 +72,31 @@ export default function Gallery() {
                       borderBottom: "1px solid #ebebeb",
                       position: "relative"
                     }}>
+                      <Text as="p" tone="subdued">Preview Thumbnail Visible For Everyone</Text>
                       {!unlocked && (
                         <div style={{
                           position: "absolute",
-                          inset: 0,
-                          background: "rgba(255,255,255,0.7)",
+                          top: "10px",
+                          right: "10px",
+                          background: "rgba(0,0,0,0.6)",
+                          color: "white",
+                          padding: "4px 8px",
+                          borderRadius: "4px",
                           display: "flex",
-                          flexDirection: "column",
                           alignItems: "center",
-                          justifyContent: "center",
+                          gap: "4px",
                           zIndex: 1
                         }}>
-                          <Text variant="headingSm" tone="critical">🔒 Locked</Text>
-                          <Text variant="bodySm">Upgrade to {template.tier} to unlock</Text>
+                          <Text variant="bodySm" as="span" style={{ color: "white" }}>🔒</Text>
+                          <Text variant="bodySm" as="span" style={{ color: "white" }}>Upgrade Required</Text>
                         </div>
                       )}
-                      <Text as="p" tone="subdued">Preview Thumbnail</Text>
                     </div>
 
                     <Box padding="400">
                       <div style={{ display: "flex", gap: "12px", justifyContent: "space-between" }}>
                         <Button 
-                          onClick={() => navigate(`/app/templates/${template.id}`)}
-                          disabled={!unlocked}
+                          onClick={() => navigate(`/templates/${template.id}/preview`)}
                         >
                           Full Page Preview
                         </Button>
@@ -103,16 +105,16 @@ export default function Gallery() {
                           <Button 
                             variant="primary" 
                             tone="success"
-                            onClick={() => navigate("/app/pricing")}
+                            onClick={() => window.location.href = `/pricing?template=${template.id}`}
                           >
-                            Upgrade to {template.tier === "PRO" ? "Pro" : "Starter"}
+                            Upgrade Required
                           </Button>
                         ) : (
                           <Button 
                             variant="primary" 
                             onClick={() => navigate(`/app/templates/${template.id}`)}
                           >
-                            Customize
+                            Use Template
                           </Button>
                         )}
                       </div>

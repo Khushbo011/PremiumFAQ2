@@ -9,8 +9,8 @@ import prisma from "./db.server";
 
 import { BillingInterval } from "@shopify/shopify-api";
 
-export const STARTER_PLAN = 'Starter Plan';
 export const PRO_PLAN = 'Pro Plan';
+export const PREMIUM_PLAN = 'Premium Plan';
 
 const shopify = shopifyApp({
   apiKey: process.env.SHOPIFY_API_KEY,
@@ -25,12 +25,12 @@ const shopify = shopifyApp({
     expiringOfflineAccessTokens: true,
   },
   billing: {
-    [STARTER_PLAN]: {
+    [PRO_PLAN]: {
       amount: 49.0,
       currencyCode: 'INR',
       interval: BillingInterval.Every30Days,
     },
-    [PRO_PLAN]: {
+    [PREMIUM_PLAN]: {
       amount: 99.0,
       currencyCode: 'INR',
       interval: BillingInterval.Every30Days,
