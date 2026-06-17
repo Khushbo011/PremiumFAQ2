@@ -33,11 +33,11 @@ export default function Pricing() {
         <Layout.Section>
           <Grid>
             {/* Free Plan */}
-            <Grid.Cell columnSpan={{ xs: 6, sm: 2, md: 2, lg: 4, xl: 4 }}>
+            <Grid.Cell columnSpan={{ xs: 6, sm: 6, md: 4, lg: 4, xl: 4 }}>
               <Card>
                 <BlockStack gap="400">
-                  <Text as="h3" variant="headingMd">Free Plan</Text>
-                  <Text as="p" variant="headingXl">₹0 <Text as="span" variant="bodyMd" tone="subdued">/month</Text></Text>
+                  <Text as="h3" variant="headingMd" alignment="center">Free Plan</Text>
+                  <Text as="p" variant="headingXl" alignment="center">₹0 <Text as="span" variant="bodyMd" tone="subdued">/month</Text></Text>
                   <List>
                     <List.Item>3 FAQs</List.Item>
                     <List.Item>Basic Templates</List.Item>
@@ -53,11 +53,11 @@ export default function Pricing() {
             </Grid.Cell>
 
             {/* Pro Plan */}
-            <Grid.Cell columnSpan={{ xs: 6, sm: 2, md: 2, lg: 4, xl: 4 }}>
+            <Grid.Cell columnSpan={{ xs: 6, sm: 6, md: 4, lg: 4, xl: 4 }}>
               <Card>
                 <BlockStack gap="400">
-                  <Text as="h3" variant="headingMd">Pro</Text>
-                  <Text as="p" variant="headingXl">₹49 <Text as="span" variant="bodyMd" tone="subdued">/month</Text></Text>
+                  <Text as="h3" variant="headingMd" alignment="center">Pro</Text>
+                  <Text as="p" variant="headingXl" alignment="center">₹49 <Text as="span" variant="bodyMd" tone="subdued">/month</Text></Text>
                   <List>
                     <List.Item>Unlimited FAQs</List.Item>
                     <List.Item>All Template Access</List.Item>
@@ -76,12 +76,12 @@ export default function Pricing() {
             </Grid.Cell>
 
             {/* Premium Plan */}
-            <Grid.Cell columnSpan={{ xs: 6, sm: 2, md: 2, lg: 4, xl: 4 }}>
+            <Grid.Cell columnSpan={{ xs: 6, sm: 6, md: 4, lg: 4, xl: 4 }}>
               <div style={{ border: "2px solid var(--p-color-border-interactive)", borderRadius: "var(--p-border-radius-200)" }}>
                 <Card>
                   <BlockStack gap="400">
-                    <Text as="h3" variant="headingMd">Premium</Text>
-                    <Text as="p" variant="headingXl">₹99 <Text as="span" variant="bodyMd" tone="subdued">/month</Text></Text>
+                    <Text as="h3" variant="headingMd" alignment="center">Premium</Text>
+                    <Text as="p" variant="headingXl" alignment="center">₹99 <Text as="span" variant="bodyMd" tone="subdued">/month</Text></Text>
                     <List>
                       <List.Item>Everything in Pro</List.Item>
                       <List.Item>Priority Support</List.Item>
