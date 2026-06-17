@@ -27,12 +27,12 @@ const shopify = shopifyApp({
   billing: {
     [PRO_PLAN]: {
       amount: 49.0,
-      currencyCode: 'INR',
+      currencyCode: 'USD',
       interval: BillingInterval.Every30Days,
     },
     [PREMIUM_PLAN]: {
       amount: 99.0,
-      currencyCode: 'INR',
+      currencyCode: 'USD',
       interval: BillingInterval.Every30Days,
     },
   },

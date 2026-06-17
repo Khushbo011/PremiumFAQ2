@@ -31,9 +31,10 @@ export default function Gallery() {
   const navigate = useNavigate();
 
   const isUnlocked = (tier) => {
-    if (plan === "PRO") return true;
-    if (plan === "STARTER" && (tier === "FREE" || tier === "STARTER")) return true;
-    if (plan === "FREE" && tier === "FREE") return true;
+    const currentPlan = (plan || "FREE").toUpperCase();
+    if (currentPlan === "PREMIUM") return true;
+    if (currentPlan === "PRO" && (tier === "FREE" || tier === "STARTER")) return true;
+    if (currentPlan === "FREE" && tier === "FREE") return true;
     return false;
   };
 
@@ -105,7 +106,7 @@ export default function Gallery() {
                           <Button 
                             variant="primary" 
                             tone="success"
-                            onClick={() => window.location.href = `/pricing?template=${template.id}`}
+                            onClick={() => navigate(`/app/pricing?template=${template.id}`)}
                           >
                             Upgrade Required
                           </Button>

@@ -25,7 +25,7 @@ export default function TemplatePreviewPublic() {
     if (template.tier === "FREE") {
       navigate(`/app/templates/${templateId}`);
     } else {
-      window.location.href = `/pricing?template=${templateId}`;
+      navigate(`/app/pricing?template=${templateId}`);
     }
   };
 

@@ -20,11 +20,11 @@ export const loader = async ({ request, params }) => {
   }
 
   const templateId = parseInt(params.id, 10);
-  const plan = shop.plan;
+  const plan = (shop.plan || "FREE").toUpperCase();
   
   let isAllowed = false;
-  if (plan === "PRO") isAllowed = true;
-  if (plan === "STARTER" && templateId <= 4) isAllowed = true;
+  if (plan === "PREMIUM") isAllowed = true;
+  if (plan === "PRO" && templateId <= 4) isAllowed = true;
   if (plan === "FREE" && templateId === 1) isAllowed = true;
 
   if (!isAllowed) {
